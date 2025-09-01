@@ -5,11 +5,11 @@ ARG TARGETARCH
 WORKDIR /source
 
 # Copy project file and restore as distinct layers
-COPY --link ryden-dev/*.csproj .
+COPY --link ryden-dev.Website/*.csproj .
 RUN dotnet restore -a $TARGETARCH
 
 # Copy source code and publish app
-COPY --link ryden-dev/. .
+COPY --link ryden-dev.Website/. .
 RUN dotnet publish -a $TARGETARCH --no-restore -o /app
 
 
