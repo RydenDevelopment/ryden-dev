@@ -1,0 +1,6 @@
+services:
+  ryden-dev.website:
+    image: ryden-dev.website
+    build:
+      context: .
+      dockerfile: ryden-dev.Website/DockerfileLocal
