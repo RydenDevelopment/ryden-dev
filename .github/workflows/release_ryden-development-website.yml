@@ -31,7 +31,7 @@ jobs:
       with:
         push: true
         tags: ghcr.io/${{ secrets.AzureAppService_ContainerUsername_7a879855d7904c89b8e8411f8bf183da }}/appsvc/staticsite:${{ github.sha }}
-        file: ./Dockerfile
+        file: ./DockerfileAzure
 
   deploy:
     runs-on: ubuntu-latest
