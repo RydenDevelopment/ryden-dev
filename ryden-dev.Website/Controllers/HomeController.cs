@@ -1,10 +1,13 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using ryden_dev.Website.Enums;
+using ryden_dev.Website.Filters;
 using ryden_dev.Website.Models;
 
 namespace ryden_dev.Website.Controllers;
 
-public class HomeController : Controller
+[LanguageCodeActionFilter]
+public class HomeController : BaseController
 {
     private readonly ILogger<HomeController> _logger;
 
@@ -13,17 +16,30 @@ public class HomeController : Controller
         _logger = logger;
     }
 
+    [Route("{language}/")]
     public IActionResult Index()
     {
-        return View();
+        if (LanguageCode == LanguageCodeEnum.En)
+        {
+            
+        }
+        else
+        {
+            
+        }
+        
+        var model = new IndexViewModel();
+        
+        return View(model);
     }
-
-    [Route("Privacy")]
+    
+    [Route("{language}/privacy")]
     public IActionResult Privacy()
     {
         return View();
     }
 
+    [Route("{language}/error")]
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {

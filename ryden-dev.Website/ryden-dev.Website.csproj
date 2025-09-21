@@ -8,4 +8,9 @@
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\en-SE\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\en-SE\Privacy.cshtml" />
+    </ItemGroup>
+
 </Project>

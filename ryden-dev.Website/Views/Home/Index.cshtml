@@ -1,9 +1,54 @@
-﻿@{
+﻿@model IndexViewModel
+@{
     ViewData["Title"] = "Start";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Välkommen till Rydén Development!</h1>
-    <p>Sidan är för närvarande under konstruktion, vänligen återkom vid ett senare tillfälle.</p>
-    <p>Vill du komma i kontakt så skicka ett mail till <a href="mailto:kim@ryden.dev">kim@ryden.dev</a></p>
+<div class="row">
+    <div class="col-12 text-center">
+        <h1 class="display-4">@ViewData.Model.Translation.GetValueOrDefault("Title")</h1>
+        <h1 class="display-4">Flexibla, moderna webb-lösningar</h1>
+        <p>En Malmö-baserad utvecklare specialiserad i att bygga eleganta, skalbara och användarinriktade lösningar. Från koncept till lansering, jag väcker din digitala vision till liv med lättläst kod och kreativ design.</p>
+    </div>
+</div>
+<div class="row">
+    <div class="text-center">
+        <button type="button" class="btn btn-primary px-4 py-2 fw-bold rounded-pill shadow-sm">
+            Projekt
+        </button>
+        <a href="https://www.linkedin.com/in/kim-ryden/" target="_blank">
+            <button type="button" class="btn btn-outline-primary px-4 py-2 fw-bold rounded-pill">
+                LinkedIn
+            </button>
+        </a>
+    </div>
+</div>
+<div class="row">
+    <h2>Tillgängliga Tjänster</h2>
+    <div class="col-sm-12 col-md-4">
+        <div class="card border-0 shadow-sm h-100">
+            <img src="img/front-end-service-2.png" class="card-img-top" alt="Project Screenshot">
+            <div class="card-body">
+                <h5 class="card-title fw-bold">Front-End Utveckling</h5>
+                <p class="card-text">Bygger responsiva och lättnavigerade gränssnitt med moderna ramverk för både hemsidor och appar</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-4">
+        <div class="card border-0 shadow-sm h-100">
+            <img src="img/back-end-services-2.png" class="card-img-top" alt="Project Screenshot">
+            <div class="card-body">
+                <h5 class="card-title fw-bold">Back-End System</h5>
+                <p class="card-text">Designar robusta servrar, APIer och databaser med .Net Core som grund</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-4">
+        <div class="card border-0 shadow-sm h-100">
+            <img src="img/ui-ux-service-2.png" class="card-img-top" alt="Project Screenshot">
+            <div class="card-body">
+                <h5 class="card-title fw-bold">UI/UX & Design</h5>
+                <p class="card-text">Översätter idéer till användarvänliga prototyper och färdiga designs med fokus på slutanvändaren</p>
+            </div>
+        </div>
+    </div>
 </div>
