@@ -22,7 +22,9 @@ app.MapStaticAssets();
 
 app.MapControllerRoute(
         name: "default",
-        pattern: "{language=sv}/{action=Index}/{id?}")
+        pattern: "{action=Index}/{id?}")
         .WithStaticAssets();
+
+
 
 app.Run();

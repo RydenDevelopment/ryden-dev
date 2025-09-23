@@ -6,8 +6,7 @@ using ryden_dev.Website.Models;
 
 namespace ryden_dev.Website.Controllers;
 
-[LanguageCodeActionFilter]
-public class HomeController : BaseController
+public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
 
@@ -33,13 +32,13 @@ public class HomeController : BaseController
         return View(model);
     }
     
-    [Route("{language}/privacy")]
+    [Route("/privacy")]
     public IActionResult Privacy()
     {
         return View();
     }
 
-    [Route("{language}/error")]
+    [Route("/error")]
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {
