@@ -64,6 +64,7 @@ body {
 }
 
 .card-img-box {
+  max-height: 450px;
   align-content: center;
 }
 
