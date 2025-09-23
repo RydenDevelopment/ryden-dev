@@ -52,6 +52,13 @@ body {
   font-family: var(--bs-font-Inter), sans-serif;
 }
 
+.anchor-offset {
+  display: block;
+  position: relative;
+  top: -90px;
+  visibility: hidden;
+}
+
 .container {
   max-width: 85%;
 }
@@ -67,7 +74,7 @@ body {
 
 .sticky-top {
   background-color: var(--bs-light);
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
 }
 
 .navbar-brand {

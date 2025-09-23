@@ -1,20 +1,24 @@
-﻿@model IndexViewModel
-@{
+﻿@{
     ViewData["Title"] = "Start";
+    var isSuccess = TempData["result"] as string;
+    var message = TempData["message"] as string;
 }
-
-<div class="row">
-    <div class="col-12 text-center">
-        <h1 class="display-4">@ViewData.Model.Translation.GetValueOrDefault("Title")</h1>
-        <h1 class="display-4">Flexibla, moderna webb-lösningar</h1>
-        <p>En Malmö-baserad utvecklare specialiserad i att bygga eleganta, skalbara och användarinriktade lösningar. Från koncept till lansering, jag väcker din digitala vision till liv med lättläst kod och kreativ design.</p>
+<div id="top" class="anchor-offset"></div>
+<div class="row mb-2">
+    <div class="offset-sm-1 col-sm-10 offset-md-2 col-md-8 text-center">
+        <h1>Crafting Modern, <br/>High-Performance Web Solutions</h1>
+        <p>I'm a Malmö-based developer specializing in building elegant, scalable, and user-centric applications. From concept to deployment, I bring your digital vision to life with clean code and creative design.</p>
     </div>
 </div>
-<div class="row">
-    <div class="text-center">
-        <button type="button" class="btn btn-primary px-4 py-2 fw-bold rounded-pill shadow-sm">
-            Projekt
-        </button>
+<div class="row text-center mb-5">
+    <div class="offset-sm-1 col-sm-5 offset-md-2 col-md-4 offset-lg-4 col-lg-2 mt-4">
+        <a href="https://github.com/orgs/RydenDevelopment/repositories" target="_blank">
+            <button type="button" class="btn btn-primary px-4 py-2 fw-bold rounded-pill shadow-sm">
+                View my Work
+            </button>
+        </a>
+    </div>
+    <div class="col-sm-5 col-md-4 col-lg-2 mt-4">
         <a href="https://www.linkedin.com/in/kim-ryden/" target="_blank">
             <button type="button" class="btn btn-outline-primary px-4 py-2 fw-bold rounded-pill">
                 LinkedIn
@@ -22,14 +26,20 @@
         </a>
     </div>
 </div>
-<div class="row">
-    <h2>Tillgängliga Tjänster</h2>
+<div id="services" class="anchor-offset"></div>
+<div class="row mt-5 mb-5">
+    <div class="offset-1 col-10 text-center">
+        <h2>Core Services</h2>
+        <p>
+            I turn great ideas into polished digital products. My approach is holistic: I start with the user, designing a clean and intuitive UI/UX. From there, I build a pixel-perfect, interactive front-end experience. To make it all work, I engineer the powerful and secure back-end engine that drives everything. As a single point of contact, I handle every piece of the puzzle to ensure your final product is seamless, scalable, and ready for your audience.
+        </p>
+    </div>
     <div class="col-sm-12 col-md-4">
         <div class="card border-0 shadow-sm h-100">
             <img src="img/front-end-service-2.png" class="card-img-top" alt="Project Screenshot">
             <div class="card-body">
-                <h5 class="card-title fw-bold">Front-End Utveckling</h5>
-                <p class="card-text">Bygger responsiva och lättnavigerade gränssnitt med moderna ramverk för både hemsidor och appar</p>
+                <h5 class="card-title fw-bold">Front-End Development</h5>
+                <p class="card-text">Building responsive and intuitive user interfaces with modern frameworks in .Net with MAUI or Blazor</p>
             </div>
         </div>
     </div>
@@ -37,8 +47,8 @@
         <div class="card border-0 shadow-sm h-100">
             <img src="img/back-end-services-2.png" class="card-img-top" alt="Project Screenshot">
             <div class="card-body">
-                <h5 class="card-title fw-bold">Back-End System</h5>
-                <p class="card-text">Designar robusta servrar, APIer och databaser med .Net Core som grund</p>
+                <h5 class="card-title fw-bold">Back-End Systems</h5>
+                <p class="card-text">Designing robust server-side logic, APIs, and databases using .Net Web-API and SQL.</p>
             </div>
         </div>
     </div>
@@ -47,8 +57,83 @@
             <img src="img/ui-ux-service-2.png" class="card-img-top" alt="Project Screenshot">
             <div class="card-body">
                 <h5 class="card-title fw-bold">UI/UX & Design</h5>
-                <p class="card-text">Översätter idéer till användarvänliga prototyper och färdiga designs med fokus på slutanvändaren</p>
+                <p class="card-text">Translating ideas into user-friendly wireframes and prototypes that prioritize usability.</p>
             </div>
+        </div>
+    </div>
+</div>
+<div id="projects" class="anchor-offset"></div>
+<div class="row mt-5 mb-5">
+    
+</div>
+<div id="about" class="anchor-offset"></div>
+<div class="row mt-5 mb-5">
+    
+</div>
+<div id="contact" class="anchor-offset"></div>
+<div class="row mt-5 mb-5">
+    <div class="offset-1 col-10 mt-5">
+        <div class="card border-0 shadow-sm h-100 p-5" style="text-align: left;">
+            <h1>Contact Form</h1>
+            @using (Html.BeginForm("Contact", "Home", FormMethod.Post))
+            {   
+                <label for="Subject">Subject:</label>
+                <div class="row" style="margin: 0">
+                    <div class="col-lg-3 col-md-4 col-sm-12 form-check">
+                        <input class="form-check-input" type="radio" name="ContactType" id="other-radio" value="Övrigt" checked>
+                        <label class="form-check-label" for="other-radio">
+                            Our Services
+                        </label>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 form-check">
+                        <input class="form-check-input" type="radio" name="ContactType" id="booking-radio" value="Upphämtning">
+                        <label class="form-check-label" for="booking-radio">
+                            Availability
+                        </label>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-12 form-check">
+                        <input class="form-check-input" type="radio" name="ContactType" id="cleaning-radio" value="Dödsbo">
+                        <label class="form-check-label" for="cleaning-radio">
+                            Pricing
+                        </label>
+                    </div>
+                </div>
+            <br/>
+            <div class="form-group">
+                <label for="Name">Name:</label>
+                <input type="text" class="form-control" id="Name" name="Name" placeholder="First and last name">
+            </div>
+            <br/>
+            <div class="form-group">
+                <label for="Email">Email:</label>
+                <input type="email" class="form-control" id="Email" name="Email" placeholder="Ex: your@email.com">
+            </div>
+            <br/>
+            <div id="PhoneGroup" class="form-group">
+                <label for="PhoneNumber">Phone number:</label>
+                <input type="number" class="form-control" id="PhoneNumber" name="PhoneNumber" placeholder="Ex: +46 70 123 45 67">
+                <br/>
+            </div>
+            <div class="form-group">
+                <label for="Message">Message:</label>
+                <textarea class="form-control" id="Message" name="Message" rows="6" placeholder="Enter your message here, please be as specific as possible."></textarea>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-12">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                <div class="col-lg-9 col-md-8 col-sm-12" style="margin-top: 20px">
+                    @if (!string.IsNullOrEmpty(isSuccess) && !string.IsNullOrEmpty(message))
+                    {
+                    <div class="alert @(isSuccess == "true" ? "alert-success" : "alert-danger") fade show" role="alert">
+                        <strong>@message</strong>
+                    </div>
+                    }
+                </div>
+            </div>
+
+            }
         </div>
     </div>
 </div>
