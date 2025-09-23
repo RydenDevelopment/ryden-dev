@@ -36,7 +36,7 @@
     </div>
     <div class="col-sm-12 col-md-4">
         <div class="card border-0 shadow-sm h-100">
-            <img src="img/front-end-service-2.png" class="card-img-top" alt="Project Screenshot">
+            <img src="img/front-end-service-2.png" class="card-img card-img-top" alt="Project Screenshot">
             <div class="card-body">
                 <h5 class="card-title fw-bold">Front-End Development</h5>
                 <p class="card-text">Building responsive and intuitive user interfaces with modern frameworks in .Net with MAUI or Blazor</p>
@@ -45,7 +45,7 @@
     </div>
     <div class="col-sm-12 col-md-4">
         <div class="card border-0 shadow-sm h-100">
-            <img src="img/back-end-services-2.png" class="card-img-top" alt="Project Screenshot">
+            <img src="img/back-end-services-2.png" class="card-img card-img-top" alt="Project Screenshot">
             <div class="card-body">
                 <h5 class="card-title fw-bold">Back-End Systems</h5>
                 <p class="card-text">Designing robust server-side logic, APIs, and databases using .Net Web-API and SQL.</p>
@@ -54,7 +54,7 @@
     </div>
     <div class="col-sm-12 col-md-4">
         <div class="card border-0 shadow-sm h-100">
-            <img src="img/ui-ux-service-2.png" class="card-img-top" alt="Project Screenshot">
+            <img src="img/ui-ux-service-2.png" class="card-img card-img-top" alt="Project Screenshot">
             <div class="card-body">
                 <h5 class="card-title fw-bold">UI/UX & Design</h5>
                 <p class="card-text">Translating ideas into user-friendly wireframes and prototypes that prioritize usability.</p>
@@ -64,74 +64,112 @@
 </div>
 <div id="projects" class="anchor-offset"></div>
 <div class="row mt-5 mb-5">
-    
+    <div class="offset-1 col-10 text-center">
+        <h2>Recent Projects</h2>
+        <p>Here are a few examples of my work, showcasing my skills in turning ideas into reality. For more projects, please visit my GitHub.</p>
+    </div>
+    <div class="col-sm-12 col-md-6 mt-4">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="row" style="height: 100%">
+                <div class="col-lg-12 col-xl-6 card-img-box">
+                    <img src="img/launchpal-logo.png" class="card-img-top" alt="Project logo for LaunchPal">
+                </div>
+                <div class="col-lg-12 col-xl-6">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">LaunchPal</h5>
+                        <p class="card-text">
+                            LaunchPal was a 3rd generation launch tracking app for any one wanting to keep track of upcoming launches and get the correct time, and also allows reminders to be set in advance so you never miss a launch again. It also includes features like following launch agencies, get a weather report, check what astronauts in space and get the latest space news.
+                        </p>
+                        <a href="https://github.com/RydenDevelopment/LaunchPal" target="_blank" class="btn btn-outline-primary rounded-pill">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-6 mt-4">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="row" style="height: 100%">
+                <div class="col-lg-12 col-xl-6 card-img-box">
+                    <img src="img/framtid-logo.png" class="card-img-top" alt="Project logo for Framtid">
+                </div>
+                <div class="col-lg-12 col-xl-6">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Kooperativ Framtid</h5>
+                        <p class="card-text">The project is set to do a revamp of the old website being used at the moment. The goal is to make a more modern and stylish website to enable users to easily navigate and find the information they are looking for.
+                        </p>
+                        <a href="https://github.com/RydenDevelopment/Framtid-hbg" target="_blank" class="btn btn-outline-primary rounded-pill">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <div id="about" class="anchor-offset"></div>
-<div class="row mt-5 mb-5">
+<div class="row mt-5 mb-5 align-items-center">
     
 </div>
 <div id="contact" class="anchor-offset"></div>
 <div class="row mt-5 mb-5">
-    <div class="col-12 mt-5">
+    <div class="col-sm-12 offset-md-1 col-md-10 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6 mt-5 text-center">
+        <h2>Want to get in touch?</h2>
         <div class="card border-0 shadow-sm h-100 p-5" style="text-align: left;">
-            <h1>Contact Form</h1>
             @using (Html.BeginForm("Index", "Home", FormMethod.Post))
-            {   
+            {
                 <label for="Subject">Subject:</label>
                 <div class="row" style="margin: 0">
-                    <div class="col-lg-3 col-md-4 col-sm-12 form-check">
+                    <div class="col-md-4 form-check">
                         <input class="form-check-input" type="radio" name="ContactType" id="other-radio" value="Övrigt" checked>
                         <label class="form-check-label" for="other-radio">
                             Our Services
                         </label>
                     </div>
-                    <div class="col-lg-3 col-md-4 col-sm-12 form-check">
+                    <div class="col-md-4 form-check">
                         <input class="form-check-input" type="radio" name="ContactType" id="booking-radio" value="Upphämtning">
                         <label class="form-check-label" for="booking-radio">
                             Availability
                         </label>
                     </div>
-                    <div class="col-lg-3 col-md-4 col-sm-12 form-check">
+                    <div class="col-md-4 form-check">
                         <input class="form-check-input" type="radio" name="ContactType" id="cleaning-radio" value="Dödsbo">
                         <label class="form-check-label" for="cleaning-radio">
                             Pricing
                         </label>
                     </div>
                 </div>
-            <br/>
-            <div class="form-group">
-                <label for="Name">Name:</label>
-                <input type="text" class="form-control" id="Name" name="Name" placeholder="First and last name">
-            </div>
-            <br/>
-            <div class="form-group">
-                <label for="Email">Email:</label>
-                <input type="email" class="form-control" id="Email" name="Email" placeholder="Ex: your@email.com">
-            </div>
-            <br/>
-            <div id="PhoneGroup" class="form-group">
-                <label for="PhoneNumber">Phone number:</label>
-                <input type="number" class="form-control" id="PhoneNumber" name="PhoneNumber" placeholder="Ex: +46 70 123 45 67">
                 <br/>
-            </div>
-            <div class="form-group">
-                <label for="Message">Message:</label>
-                <textarea class="form-control" id="Message" name="Message" rows="6" placeholder="Enter your message here, please be as specific as possible."></textarea>
-            </div>
-            <br/>
-            <div class="row">
-                <div class="col-lg-3 col-md-4 col-sm-12">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="form-group">
+                    <label for="Name">Name:</label>
+                    <input type="text" class="form-control" id="Name" name="Name" placeholder="First and last name">
                 </div>
-                <div class="col-lg-9 col-md-8 col-sm-12" style="margin-top: 20px">
-                    @if (!string.IsNullOrEmpty(isSuccess) && !string.IsNullOrEmpty(message))
-                    {
-                    <div class="alert @(isSuccess == "true" ? "alert-success" : "alert-danger") fade show" role="alert">
-                        <strong>@message</strong>
+                <br/>
+                <div class="form-group">
+                    <label for="Email">Email:</label>
+                    <input type="email" class="form-control" id="Email" name="Email" placeholder="Ex: your@email.com">
+                </div>
+                <br/>
+                <div id="PhoneGroup" class="form-group">
+                    <label for="PhoneNumber">Phone number:</label>
+                    <input type="number" class="form-control" id="PhoneNumber" name="PhoneNumber" placeholder="Ex: +46 70 123 45 67">
+                    <br/>
+                </div>
+                <div class="form-group">
+                    <label for="Message">Message:</label>
+                    <textarea class="form-control" id="Message" name="Message" rows="6" placeholder="Enter your message here, please be as specific as possible."></textarea>
+                </div>
+                <br/>
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-12">
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
-                    }
+                    <div class="col-lg-9 col-md-8 col-sm-12">
+                        @if (!string.IsNullOrEmpty(isSuccess) && !string.IsNullOrEmpty(message))
+                        {
+                            <div class="alert @(isSuccess == "true" ? "alert-success" : "alert-danger") fade show" role="alert">
+                                <strong>@message</strong>
+                            </div>
+                        }
+                    </div>
                 </div>
-            </div>
 
             }
         </div>
