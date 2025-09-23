@@ -41,11 +41,6 @@ public class NotifyMessage : INotifyMessage
         if (contactViewModel.PhoneNumber != null)
             builder.Append($"Telefon: {contactViewModel.PhoneNumber}{Environment.NewLine}");
         
-        if (contactViewModel.Adress != null)
-            builder.Append($"{Environment.NewLine}" +
-                           $"Adress:{Environment.NewLine}" +
-                           $"{contactViewModel.Adress}{Environment.NewLine}");
-        
         builder.Append($"{Environment.NewLine}" +
                        $"Meddelande:{Environment.NewLine}" +
                        $"{contactViewModel.Message}{Environment.NewLine}");

@@ -17,8 +17,5 @@ public class ContactViewModel
     public string? PhoneNumber { get; set; }
     
     [BindProperty]
-    public string? Adress { get; set; }
-    
-    [BindProperty]
     public string? Message { get; set; }
 }

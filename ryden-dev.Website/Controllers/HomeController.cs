@@ -27,7 +27,7 @@ public class HomeController : Controller
     [HttpPost]
     [ValidateAntiForgeryToken]
     [Route("/")]
-    public IActionResult Contact(ContactViewModel model)
+    public IActionResult Index(ContactViewModel model)
     {
         // Check model so it contains data
         if (model.Email == null || model.ContactType == null || model.Message == null)
