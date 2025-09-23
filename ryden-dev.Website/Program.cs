@@ -1,7 +1,12 @@
+using ryden_dev.Website.Services.Interface;
+using ryden_dev.Website.Services.NotifyService;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<INotifyService, EmailService>();
 
 var app = builder.Build();
 

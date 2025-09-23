@@ -1,35 +1,53 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using ryden_dev.Website.Enums;
-using ryden_dev.Website.Filters;
 using ryden_dev.Website.Models;
+using ryden_dev.Website.Services.Interface;
+using ryden_dev.Website.Services.NotifyService;
 
 namespace ryden_dev.Website.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly INotifyService _notifyService;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, INotifyService notifyService)
     {
         _logger = logger;
+        _notifyService = notifyService;
     }
 
-    [Route("{language}/")]
+    [Route("/")]
     public IActionResult Index()
     {
-        if (LanguageCode == LanguageCodeEnum.En)
-        {
-            
-        }
-        else
-        {
-            
-        }
+       
+        return View();
+    }
+    
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    [Route("/")]
+    public IActionResult Contact(ContactViewModel model)
+    {
+        // Check model so it contains data
+        if (model.Email == null || model.ContactType == null || model.Message == null)
+            return View();
+
+        // Prepare the contact form in to an email
+        var notifyMessage = new NotifyMessage().PrepareContentFrom(model);
+        var emailMessage = _notifyService.PrepareEmailFrom(notifyMessage);
         
-        var model = new IndexViewModel();
-        
-        return View(model);
+        // Try and send the email
+        var isSuccess = _notifyService.SendMessage(emailMessage);
+
+        // Returns the result of sending the message to the user
+        var contactEmail = Environment.GetEnvironmentVariable("SMTP_CONTACT_RECIPIENT");
+        TempData["result"] = isSuccess.ToString().ToLower();
+        TempData["message"] = isSuccess ? 
+            "We have recieved your message and will be in touch shortly!" : 
+            "We experianced a technical issue, please try and contact us on: " + contactEmail;
+
+        return View();
     }
     
     [Route("/privacy")]
