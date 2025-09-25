@@ -1,8 +1,9 @@
+@model ContactViewModel
 @{
     ViewData["Title"] = "Start";
     var isSuccess = TempData["result"] as string;
     var message = TempData["message"] as string;
-    var anchorValue = TempData["AnchorValue"] as string ;
+    var anchorValue = TempData["AnchorValue"] as string;
 }
 @Html.Hidden("AnchorId", anchorValue)
 <div id="top" class="anchor-offset"></div>

@@ -20,8 +20,8 @@ public class HomeController : Controller
     [Route("/")]
     public IActionResult Index()
     {
-       
-        return View();
+        var model = new ContactViewModel();
+        return View(model);
     }
     
     [HttpPost]
@@ -34,7 +34,7 @@ public class HomeController : Controller
         
         if (!ModelState.IsValid)
         {
-            return View();
+            return View(model);
         }
         
         // Check model so it contains data
@@ -42,7 +42,7 @@ public class HomeController : Controller
         {
             TempData["result"] = isSuccess.ToString().ToLower();
             TempData["message"] = "Please enter all required fields";
-            return View();
+            return View(model);
         }
 
         try
@@ -56,19 +56,20 @@ public class HomeController : Controller
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error sending email");
+            _logger.LogError(ex, "Error trying to send email");
         }
-        finally
+
+        if (isSuccess)
         {
-            // Returns the result of sending the message to the user
-            var contactEmail = Environment.GetEnvironmentVariable("SMTP_CONTACT_RECIPIENT");
-            TempData["result"] = isSuccess.ToString().ToLower();
-            TempData["message"] = isSuccess ? 
-                "We have received your message and will be in touch shortly!" : 
-                "We experienced a technical issue, please try and contact us on: " + contactEmail;
+            TempData["message"] = "We have received your message and will be in touch shortly!";
+            return View(new ContactViewModel());
         }
-        
-        return View();
+        else
+        {
+            var contactEmail = Environment.GetEnvironmentVariable("SMTP_CONTACT_RECIPIENT");
+            TempData["message"] = "We experienced a technical issue, please try and contact us on: " + contactEmail;
+            return View(model);
+        }
     }
     
     [Route("/privacy")]
