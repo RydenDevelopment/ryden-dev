@@ -32,13 +32,9 @@ public class HomeController : Controller
         var isSuccess = false;
         TempData["AnchorValue"] = "contact";
         
-        if (!ModelState.IsValid)
-        {
-            return View(model);
-        }
-        
-        // Check model so it contains data
-        if (string.IsNullOrEmpty(model.Email) || 
+        // Check the model so it contains data
+        if (!ModelState.IsValid || 
+            string.IsNullOrEmpty(model.Email) || 
             string.IsNullOrEmpty(model.Name) || 
             string.IsNullOrEmpty(model.Message))
         {
