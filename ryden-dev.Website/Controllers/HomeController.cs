@@ -38,10 +38,12 @@ public class HomeController : Controller
         }
         
         // Check model so it contains data
-        if (model.Email == null || model.Name == null || model.Message == null)
+        if (string.IsNullOrEmpty(model.Email) || 
+            string.IsNullOrEmpty(model.Name) || 
+            string.IsNullOrEmpty(model.Message))
         {
             TempData["result"] = isSuccess.ToString().ToLower();
-            TempData["message"] = "Please enter all required fields";
+            TempData["message"] = "Please fill out all required fields";
             return View(model);
         }
 
@@ -53,6 +55,7 @@ public class HomeController : Controller
 
             // Try and send the email
             isSuccess = _notifyService.SendMessage(emailMessage);
+            TempData["result"] = isSuccess.ToString().ToLower();
         }
         catch (Exception ex)
         {
