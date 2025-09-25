@@ -138,42 +138,42 @@
         <div class="info-card p-4" style="text-align: left;">
             @using (Html.BeginForm("Index", "Home", FormMethod.Post))
             {
-                <label>Subject:</label>
-                <div class="row" style="margin: 0">
+                <label for="subject">Subject:</label>
+                <div id="subject" class="row" style="margin: 0">
                     <div class="col-md-4 form-check">
-                        <input class="form-check-input" type="radio" name="ContactType" id="other-radio" value="Övrigt" checked>
-                        <label class="form-check-label" for="other-radio">
+                        <input class="form-check-input" type="radio" name="ContactType" id="radio-services" value="Övrigt" checked>
+                        <label class="form-check-label" for="radio-services">
                             Our Services
                         </label>
                     </div>
                     <div class="col-md-4 form-check">
-                        <input class="form-check-input" type="radio" name="ContactType" id="booking-radio" value="Upphämtning">
-                        <label class="form-check-label" for="booking-radio">
+                        <input class="form-check-input" type="radio" name="ContactType" id="radio-availability" value="Upphämtning">
+                        <label class="form-check-label" for="radio-availability">
                             Availability
                         </label>
                     </div>
                     <div class="col-md-4 form-check">
-                        <input class="form-check-input" type="radio" name="ContactType" id="cleaning-radio" value="Dödsbo">
-                        <label class="form-check-label" for="cleaning-radio">
+                        <input class="form-check-input" type="radio" name="ContactType" id="radio-pricing" value="Dödsbo">
+                        <label class="form-check-label" for="radio-pricing">
                             Pricing
                         </label>
                     </div>
                 </div>
                 <br/>
-                <label for="Name">Name *</label>
+                <label for="Name">Name <span class="required-form-text">*</span></label>
                 <div class="input-group">
                     <span class="input-group-text">
                         <span class="bi bi-person"></span>
                     </span>
-                    <input type="text" class="form-control" id="Name" name="Name" placeholder="First and last name">
+                    <input type="text" class="form-control" id="Name" name="Name" placeholder="First and last name" value="@Model.Name">
                 </div>
                 <br/>
-                <label for="Email">Email *</label>
+                <label for="Email">Email <span class="required-form-text">*</span></label>
                 <div class="input-group">
                     <span class="input-group-text">
                         <span class="bi bi-envelope"></span>
                     </span>
-                    <input type="email" class="form-control" id="Email" name="Email" placeholder="Ex: your@email.com">
+                    <input type="email" class="form-control" id="Email" name="Email" placeholder="Ex: your@email.com" value="@Model.Email">
                 </div>
                 <br/>
                 <label for="PhoneNumber">Phone number</label>
@@ -181,15 +181,15 @@
                     <span class="input-group-text">
                         <span class="bi bi-telephone"></span>
                     </span>
-                    <input type="number" class="form-control" id="PhoneNumber" name="PhoneNumber" placeholder="Ex: +46 70 123 45 67">
+                    <input type="number" class="form-control" id="PhoneNumber" name="PhoneNumber" placeholder="Ex: +46 70 123 45 67" value="@Model.PhoneNumber">
                 </div>
                 <br/>
-                <label for="Message">Message *</label>
+                <label for="Message">Message <span class="required-form-text">*</span></label>
                 <div class="input-group">
                     <span class="input-group-text">
                         <span class="bi bi-justify-left"></span>
                     </span>
-                    <textarea class="form-control" id="Message" name="Message" rows="6" placeholder="Enter your message here, please be as specific as possible."></textarea>
+                    <textarea class="form-control" id="Message" name="Message" rows="6" placeholder="Enter your message here, please be as specific as possible.">@Model.Message</textarea>
                 </div>
                 <br/>
                 <div class="row">

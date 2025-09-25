@@ -106,6 +106,10 @@ body {
   padding: 10px;
 }
 
+.required-form-text {
+  color: red;
+}
+
 #dntCaptchaImg {
   margin-top: 3px;
 }
