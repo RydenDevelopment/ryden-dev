@@ -1,4 +1,4 @@
-using DNTCaptcha.Core;
+
 using ryden_dev.Website.Services.Interface;
 using ryden_dev.Website.Services.NotifyService;
 
@@ -7,12 +7,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDistributedMemoryCache();
-builder.Services.AddDNTCaptcha(options =>
-{
-    options.EncryptionKey = Guid.NewGuid().ToString();
-    
-});
 builder.Services.AddScoped<INotifyService, EmailService>();
+
+builder.Services.AddAntiforgery();
+
+builder.Services.AddLogging();
 
 var app = builder.Build();
 

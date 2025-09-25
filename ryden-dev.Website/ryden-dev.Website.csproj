@@ -19,10 +19,4 @@
       <Folder Include="Services\" />
     </ItemGroup>
 
-    <ItemGroup>
-      <PackageReference Include="DNTCaptcha.Core" Version="5.3.1" />
-      <PackageReference Include="HarfBuzzSharp.NativeAssets.Linux" Version="8.3.1.2" />
-      <PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="3.119.1" />
-    </ItemGroup>
-
 </Project>

@@ -2,7 +2,9 @@
     ViewData["Title"] = "Start";
     var isSuccess = TempData["result"] as string;
     var message = TempData["message"] as string;
+    var anchorValue = TempData["AnchorValue"] as string ;
 }
+@Html.Hidden("AnchorId", anchorValue)
 <div id="top" class="anchor-offset"></div>
 <div class="row mb-2">
     <div class="offset-sm-1 col-sm-10 offset-md-1 col-md-10 text-center">
@@ -70,7 +72,7 @@
         <p>Here are a few examples of my work, showcasing my skills in turning ideas into reality. For more projects, please visit my GitHub.</p>
     </div>
     <div class="col-sm-12 col-md-6 mt-4">
-        <div class="info-card shadow-sm h-100">
+        <div class="info-card p-4">
             <div class="row" style="height: 100%">
                 <div class="col-lg-12 col-xl-6 card-img-box">
                     <img src="img/launchpal-logo.png" class="card-img-top" alt="Project logo for LaunchPal">
@@ -88,7 +90,7 @@
         </div>
     </div>
     <div class="col-sm-12 col-md-6 mt-4">
-        <div class="info-card shadow-sm h-100">
+        <div class="info-card p-4">
             <div class="row" style="height: 100%">
                 <div class="col-lg-12 col-xl-6 card-img-box">
                     <img src="img/framtid-logo.png" class="card-img-top" alt="Project logo for Framtid">
@@ -132,7 +134,7 @@
 <div class="row mb-5 text-center">
     <div class="col-sm-12 offset-md-1 col-md-10 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
         <h2>Want to get in touch?</h2>
-        <div class="info-card shadow-sm h-100 p-5" style="text-align: left;">
+        <div class="info-card p-4" style="text-align: left;">
             @using (Html.BeginForm("Index", "Home", FormMethod.Post))
             {
                 <label>Subject:</label>
@@ -157,7 +159,7 @@
                     </div>
                 </div>
                 <br/>
-                <label for="Name">Name:</label>
+                <label for="Name">Name *</label>
                 <div class="input-group">
                     <span class="input-group-text">
                         <span class="bi bi-person"></span>
@@ -165,7 +167,7 @@
                     <input type="text" class="form-control" id="Name" name="Name" placeholder="First and last name">
                 </div>
                 <br/>
-                <label for="Email">Email:</label>
+                <label for="Email">Email *</label>
                 <div class="input-group">
                     <span class="input-group-text">
                         <span class="bi bi-envelope"></span>
@@ -173,7 +175,7 @@
                     <input type="email" class="form-control" id="Email" name="Email" placeholder="Ex: your@email.com">
                 </div>
                 <br/>
-                <label for="PhoneNumber">Phone number:</label>
+                <label for="PhoneNumber">Phone number</label>
                 <div class="input-group">
                     <span class="input-group-text">
                         <span class="bi bi-telephone"></span>
@@ -181,34 +183,12 @@
                     <input type="number" class="form-control" id="PhoneNumber" name="PhoneNumber" placeholder="Ex: +46 70 123 45 67">
                 </div>
                 <br/>
-                <label for="Message">Message:</label>
+                <label for="Message">Message *</label>
                 <div class="input-group">
                     <span class="input-group-text">
                         <span class="bi bi-justify-left"></span>
                     </span>
                     <textarea class="form-control" id="Message" name="Message" rows="6" placeholder="Enter your message here, please be as specific as possible."></textarea>
-                </div>
-                <br/>
-                <div class="form-group">
-                    <label>Please verify that you are a human</label>
-                    <dnt-captcha asp-captcha-generator-max="30"
-                                 asp-captcha-generator-min="10"
-                                 asp-captcha-generator-language="English"
-                                 asp-captcha-generator-display-mode="SumOfTwoNumbersToWords"
-                                 asp-use-relative-urls="true"
-                                 asp-placeholder="Please enter the correct number"
-                                 asp-validation-error-message="The wrong number was entered, please try again"
-                                 asp-too-many-requests-error-message="To many tries, please try again later"
-                                 asp-font-name="Inter"
-                                 asp-font-size="24"
-                                 asp-fore-color="#333333"
-                                 asp-back-color="#FCF6F5FF"
-                                 asp-text-box-class="form-control"
-                                 asp-text-box-template="<div class='input-group'><span class='input-group-text'><span class='bi-lock'></span></span>{0}</div>"
-                                 asp-validation-message-class="text-danger"
-                                 asp-refresh-button-class="bi bi-arrow-counterclockwise"
-                                 asp-show-refresh-button="false"
-                                 asp-dir="ltr"/>
                 </div>
                 <br/>
                 <div class="row">
@@ -224,7 +204,8 @@
                         }
                     </div>
                 </div>
-                }
-            </div>
+            }
+        </div>
     </div>
 </div>
+<div id="bottom" class="anchor-offset"></div>
