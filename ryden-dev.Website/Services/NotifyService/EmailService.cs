@@ -76,10 +76,10 @@ public class EmailService : INotifyService
     /// <returns>An MailMessage object</returns>
     public MailMessage PrepareEmailFrom(INotifyMessage notifyMessage)
     {
-        if (!string.IsNullOrEmpty(notifyMessage.From))
+        if (string.IsNullOrEmpty(notifyMessage.From))
             throw new ArgumentException("The SMTP environmental variables has not been set properly");
         
-        if (!string.IsNullOrEmpty(notifyMessage.Recipient))
+        if (string.IsNullOrEmpty(notifyMessage.Recipient))
             throw new ArgumentException("The recipient email has not ben set");
         
         // Set a new MailMessage object with the values from the INotifyMessage object
