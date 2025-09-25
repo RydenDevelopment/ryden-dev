@@ -32,18 +32,13 @@ public class HomeController : Controller
         var isSuccess = false;
         TempData["AnchorValue"] = "contact";
         
-        if (!ModelState.IsValid)
-        {
-            return View(model);
-        }
-        
-        // Check model so it contains data
-        if (string.IsNullOrEmpty(model.Email) || 
+        // Check the model so it contains data
+        if (!ModelState.IsValid || 
+            string.IsNullOrEmpty(model.Email) || 
             string.IsNullOrEmpty(model.Name) || 
             string.IsNullOrEmpty(model.Message))
         {
-            TempData["result"] = isSuccess.ToString().ToLower();
-            TempData["message"] = "Please fill out all required fields";
+            SetResultMessage(isSuccess, "Please fill out all required fields");
             return View(model);
         }
 
@@ -55,22 +50,14 @@ public class HomeController : Controller
 
             // Try and send the email
             isSuccess = _notifyService.SendMessage(emailMessage);
-            TempData["result"] = isSuccess.ToString().ToLower();
+            SetResultMessage(isSuccess, "We have received your message and will be in touch shortly!");
+            return View(new ContactViewModel());
         }
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error trying to send email");
-        }
-
-        if (isSuccess)
-        {
-            TempData["message"] = "We have received your message and will be in touch shortly!";
-            return View(new ContactViewModel());
-        }
-        else
-        {
             var contactEmail = Environment.GetEnvironmentVariable("SMTP_CONTACT_RECIPIENT");
-            TempData["message"] = "We experienced a technical issue, please try and contact us on: " + contactEmail;
+            SetResultMessage(isSuccess, "We experienced a technical issue, please try and contact us on: " + contactEmail);
             return View(model);
         }
     }
@@ -86,5 +73,11 @@ public class HomeController : Controller
     public IActionResult Error()
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    }
+
+    private void SetResultMessage(bool result, string message)
+    {
+        TempData["result"] = result.ToString().ToLower();
+        TempData["message"] = message;
     }
 }
