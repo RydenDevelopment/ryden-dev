@@ -29,6 +29,15 @@ public class HomeController : Controller
     [Route("/")]
     public IActionResult Index(ContactViewModel model)
     {
+        var isSuccess = false;
+        
+        if (!ModelState.IsValid)
+        {
+            TempData["result"] = isSuccess.ToString().ToLower();
+            TempData["message"] = "Please verify that you are not a bot.";
+            return View();
+        }
+        
         // Check model so it contains data
         if (model.Email == null || model.ContactType == null || model.Message == null)
             return View();
@@ -38,14 +47,14 @@ public class HomeController : Controller
         var emailMessage = _notifyService.PrepareEmailFrom(notifyMessage);
         
         // Try and send the email
-        var isSuccess = _notifyService.SendMessage(emailMessage);
+        isSuccess = _notifyService.SendMessage(emailMessage);
 
         // Returns the result of sending the message to the user
         var contactEmail = Environment.GetEnvironmentVariable("SMTP_CONTACT_RECIPIENT");
         TempData["result"] = isSuccess.ToString().ToLower();
         TempData["message"] = isSuccess ? 
-            "We have recieved your message and will be in touch shortly!" : 
-            "We experianced a technical issue, please try and contact us on: " + contactEmail;
+            "We have received your message and will be in touch shortly!" : 
+            "We experienced a technical issue, please try and contact us on: " + contactEmail;
 
         return View();
     }
