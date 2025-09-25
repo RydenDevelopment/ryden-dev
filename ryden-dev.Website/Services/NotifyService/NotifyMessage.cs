@@ -29,7 +29,7 @@ public class NotifyMessage : INotifyMessage
         // Set its variables from the model
         From = contactViewModel.Email;
         Recipient = Environment.GetEnvironmentVariable("SMTP_CONTACT_RECIPIENT") ?? string.Empty;
-        Subject = contactViewModel.ContactType;
+        Subject = "Rydén.dev Form: "+ contactViewModel.ContactType;
         
         // Setting the message body with the contact information
         var builder = new StringBuilder();
