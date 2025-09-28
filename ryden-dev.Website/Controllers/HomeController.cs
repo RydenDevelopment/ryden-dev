@@ -29,8 +29,13 @@ public class HomeController : Controller
     [Route("/")]
     public IActionResult Index(ContactViewModel model)
     {
+        var blank = new ContactViewModel();
         var isSuccess = false;
         TempData["AnchorValue"] = "contact";
+
+        // Checking if bots filled the hidden field
+        if (!string.IsNullOrEmpty(model.LastName))
+            return View(blank);
         
         // Check the model so it contains data
         if (!ModelState.IsValid || 
@@ -51,7 +56,7 @@ public class HomeController : Controller
             // Try and send the email
             isSuccess = _notifyService.SendMessage(emailMessage);
             SetResultMessage(isSuccess, "We have received your message and will be in touch shortly!");
-            return View(new ContactViewModel());
+            return View(blank);
         }
         catch (Exception ex)
         {

@@ -14,6 +14,10 @@ public class ContactViewModel
     
     [BindProperty]
     [Required]
+    public string? LastName { get; set; } //Hidden field for bots
+    
+    [BindProperty]
+    [Required]
     public string? Email { get; set; }
     
     [BindProperty]
