@@ -1,6 +1,7 @@
 using System.Net;
 using System.Net.Mail;
 using ryden_dev.Website.Services.Interface;
+using static System.Net.ServicePointManager;
 
 namespace ryden_dev.Website.Services.NotifyService;
 
@@ -20,6 +21,8 @@ public class EmailService : INotifyService
         _port = int.Parse(Environment.GetEnvironmentVariable("SMTP_PORT") ?? "0");
         _username = Environment.GetEnvironmentVariable("SMTP_USERNAME") ?? string.Empty;
         _password = Environment.GetEnvironmentVariable("SMTP_PASSWORD") ?? string.Empty;
+        
+        SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls13;
     }
 
     /// <summary>

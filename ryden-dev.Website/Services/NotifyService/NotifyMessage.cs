@@ -27,7 +27,7 @@ public class NotifyMessage : INotifyMessage
             throw new ArgumentException("Data was not provided in the ContactViewModel");
         
         // Set its variables from the model
-        From = contactViewModel.Email;
+        From = Environment.GetEnvironmentVariable("SMTP_CONTACT_RECIPIENT") ?? string.Empty;
         Recipient = Environment.GetEnvironmentVariable("SMTP_CONTACT_RECIPIENT") ?? string.Empty;
         Subject = "Rydén.dev Form: "+ contactViewModel.ContactType;
         
