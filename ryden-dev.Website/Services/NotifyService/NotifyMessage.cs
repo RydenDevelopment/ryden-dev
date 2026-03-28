@@ -40,6 +40,9 @@ public class NotifyMessage : INotifyMessage
         // Add phone-number and address if they exist
         if (contactViewModel.PhoneNumber != null)
             builder.Append($"Telefon: {contactViewModel.PhoneNumber}{Environment.NewLine}");
+
+        if (contactViewModel.ContactType == "Services" && !string.IsNullOrEmpty(contactViewModel.ProductName))
+            builder.Append($"Valt paket: {contactViewModel.ProductName}{Environment.NewLine}");
         
         builder.Append($"{Environment.NewLine}" +
                        $"Meddelande:{Environment.NewLine}" +
