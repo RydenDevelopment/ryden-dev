@@ -9,6 +9,9 @@ public class ContactViewModel
     public string? ContactType { get; set; }
     
     [BindProperty]
+    public string? ProductName { get; set; }
+    
+    [BindProperty]
     [Required]
     public string? Name { get; set; }
     

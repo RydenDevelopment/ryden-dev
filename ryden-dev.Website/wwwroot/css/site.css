@@ -1,191 +1,160 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
 :root {
-  --bs-primary: #00A99D; /* Deep Teal */
-  --bs-secondary: #343A40; /* Dark Slate */
-  --brand-orange: #F58220; /*  */
-  --bs-info: #007BFF;     /* Tech Blue */
-  --bs-light: #F8F9FA;   /* Light Background */
-  --bs-dark: #343A40;     /* Dark Slate */
-  --bs-font-Inter: 'Inter', sans-serif;
-}
-
-h1 {
-  color: var(--bs-primary);
-  font-weight: 700;
-  font-size: 48px;
-  line-height: 1.6;
-  font-family: var(--bs-font-Inter), sans-serif;
-}
-
-h2 {
-  color: var(--bs-primary);
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 1.6;
-  font-family: var(--bs-font-Inter), sans-serif;
-}
-
-h5 {
-  color: var(--bs-primary);
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 1.6;
-  font-family: var(--bs-font-Inter), sans-serif;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+  --azure-blue: #0078d4;
+  --dark-blue: #005a9e;
+  --light-bg: #f8f9fa;
+  --promo-orange: #ff8c00dd;
 }
 
 body {
-  background-color: var(--bs-light);
-  margin-bottom: 60px;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.6;
-  color: var(--bs-dark);
-  font-family: var(--bs-font-Inter), sans-serif;
+  font-family: 'Inter', sans-serif;
+  color: #333;
+  scroll-behavior: smooth;
 }
 
-.anchor-offset {
+.navbar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #eee;
+  z-index: 1050;
+  
+  .navbar-brand {
+    font-weight: bold;
+    font-size: x-large;
+
+    img {
+      max-height: 40px;
+    }
+  }
+}
+
+.anchor {
   display: block;
   position: relative;
-  top: -90px;
+  top: -80px;
   visibility: hidden;
 }
 
-.container {
-  max-width: 85%;
+.hero-section {
+  background: linear-gradient(135deg, #0078d4 0%, #003a66 100%);
+  color: white;
+  padding: 160px 0 100px 0;
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
 }
 
-.button-center {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  
-  div {
-    margin-right: 5px;
-  }
-}
-
-.info-card {
-  background-color: white;
+.promo-banner {
+  background: var(--promo-orange);
+  color: white;
+  padding: 15px 0;
+  font-weight: 600;
   text-align: center;
-  border: var(--brand-orange);
-  border-width: thin;
-  border-bottom-width: thick;
-  border-style: solid;
-  border-radius: 10px;
-  position: relative;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 10px 20px, rgba(0, 0, 0, 0.22) 0px 5px 5px;
-  
-  img {
-    border-radius: 9px;
-  }
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  z-index: 1040;
 }
 
-.card-img-box {
-  max-height: 450px;
-  align-content: center;
+.section-padding {
+  padding: 80px 0;
 }
 
-.card-body {
-  padding: 10px;
+.service-card {
+  border: none;
+  border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: white;
+  height: 100%;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
-.form-check-input:checked {
-  background-color: var(--bs-primary);
-  border-color: var(--bs-primary);
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
 
-.required-form-text {
-  color: red;
+.icon-box {
+  width: 60px;
+  height: 60px;
+  background: rgba(0, 120, 212, 0.1);
+  color: var(--azure-blue);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
-#dntCaptchaImg {
-  margin-top: 3px;
+.pricing-card {
+  border: 2px solid #eee;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: white;
 }
 
-.dntCaptcha > .input-group {
-  margin-top: 10px;
+.pricing-card.featured {
+  border-color: var(--azure-blue);
+  transform: scale(1.05);
+  z-index: 1;
+  box-shadow: 0 10px 30px rgba(0, 120, 212, 0.15);
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+.addon-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 15px;
+  padding: 25px;
+  transition: all 0.2s ease;
+  background: #fff;
+  height: 100%;
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+.addon-card:hover {
+  border-color: var(--azure-blue);
+  background: #f0f7ff;
+  transform: translateY(-5px);
 }
 
-.sticky-top {
-  background-color: var(--bs-light);
-  box-shadow: rgba(0, 0, 0, 0.24) 0 3px 8px;
+.btn-azure {
+  background-color: var(--azure-blue);
+  color: white;
+  border-radius: 8px;
+  padding: 12px 30px;
+  font-weight: 600;
+  border: none;
 }
 
-.navbar-brand {
-  img {
-    max-height: 45px;
-  }
+.btn-azure:hover {
+  background-color: var(--dark-blue);
+  color: white;
 }
 
-.navbar-nav {
-  justify-content: right;
-  align-items: end;
+#contact-placeholder {
+  background: #fff;
+  border: 2px dashed #0078d4;
+  border-radius: 15px;
+  padding: 60px;
+  text-align: center;
+  color: #666;
 }
 
-.nav-item {
-  margin-right: 5px;
-  
-  a{
-    color: var(--bs-primary);
-    font-weight: bold;
-    margin-right: 10px;
-  }
+footer {
+  background: #111;
+  color: white;
+  padding: 50px 0;
 }
 
-.btn {
+.price-tag {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--azure-blue);
 }
 
-.btn-primary {
-  background-color:  var(--bs-primary);
-  border-color:  var(--bs-primary);
+.price-moms {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 400;
 }
 
-.btn-outline-primary {
-  background-color: var(--bs-light);
-  color: var(--bs-primary);
-  border-color:  var(--bs-primary);
-}
-
-.btn-accent {
-  background-color: var(--brand-orange);
-  color: #FFFFFF;
-  transition: all 0.2s ease-in-out;
-}
-
-.btn-accent:hover {
-  /* Slightly darken the orange on hover */
-  background-color: #e07014;
-  color: #FFFFFF;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(245, 130, 32, 0.4);
-}
-
-label {
-  font-weight: bold;
+.pricing-list li {
+  font-size: 0.95rem;
+  line-height: 1.4;
 }
