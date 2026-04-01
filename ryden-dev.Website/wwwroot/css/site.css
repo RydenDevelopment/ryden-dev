@@ -203,3 +203,9 @@ footer {
   font-size: 0.95rem;
   line-height: 1.4;
 }
+
+.profile-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+}
