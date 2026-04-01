@@ -1,7 +1,7 @@
 :root {
   --azure-blue: #0078d4;
-  --dark-blue: #005a9e;
-  --light-bg: #f8f9fa;
+  --dark-blue: #0f1b33;
+  --light-bg: #f8f9ff;
   --promo-orange: #ff8c00dd;
 }
 
@@ -11,15 +11,38 @@ body {
   scroll-behavior: smooth;
 }
 
+.text-primary {
+  color: var(--azure-blue) !important;
+}
+
+.btn {
+  background-color: white;
+  border-color: var(--azure-blue) !important;
+}
+
+.btn-primary {
+  background-color: var(--azure-blue) !important;
+  color: white;
+}
+
+.badge {
+  background-color: var(--azure-blue) !important;
+}
+
 .navbar {
-  background: rgba(255, 255, 255, 0.95);
+  background: linear-gradient(15deg, var(--dark-blue) 50%, var(--azure-blue) 130%);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid #eee;
   z-index: 1050;
   
+  .nav-link {
+    color: white;
+  }
+  
   .navbar-brand {
     font-weight: bold;
     font-size: x-large;
+    color: white;
 
     img {
       max-height: 40px;
@@ -35,7 +58,7 @@ body {
 }
 
 .hero-section {
-  background: linear-gradient(135deg, #0078d4 0%, #003a66 100%);
+  background: linear-gradient(15deg, var(--dark-blue) 50%, var(--azure-blue) 130%);
   color: white;
   padding: 160px 0 100px 0;
   clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
@@ -81,6 +104,28 @@ body {
   justify-content: center;
   font-size: 24px;
   margin-bottom: 20px;
+}
+
+.offer-card {
+  background: rgba(0,120,212,0.12);
+  border: 0.5px solid rgba(0,120,212,0.35);
+  border-radius: 10px;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  margin-bottom: 2rem;
+
+  .offer-card-text {
+    font-size: 13px;
+    color: #fff;
+    text-align: left;
+    
+    strong {
+      color: #5ab0f5;
+      font-size: 14px;
+      margin-bottom: 2px;
+    }
+  }
 }
 
 .pricing-card {
